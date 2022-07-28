@@ -32,7 +32,43 @@
 
 以上的具体制作方式见`新生数据库结构说明`的`二、数据库结构制作` 
 
-##### 五、配置文件
+#### 五、如何使用
+
+1.  Install
+
+```
+pip install -r requirement.txt
+```
+
+2.  Usage
+
+```
+usage:python DataUniform.py [-h] [-root ROOT_PATH] [-save SAVE_PATH] [-concat IS_CONCAT] 
+                            [-profess PROFESS_DICT] [-code CODE_MAP] [-field FIELD_MAP] 
+                            [-sort SORTL_LIST][-frame RESULT_FRAME][-filter MAJOR_FILTER]
+
+optional arguments:
+      -h, --help            show this help message and exit
+      -root ROOT_PATH, --root_path ROOT_PATH     原始数据路径
+      -save SAVE_PATH, --save_path SAVE_PATH     保存路径
+      -concat IS_CONCAT, --is_concat IS_CONCAT   
+                            是否需要连接
+      -frame RESULT_FRAME, --result_frame RESULT_FRAME
+                            结果框架，xlsx文件
+      -profess PROFESS_DICT, --profess_dict PROFESS_DICT
+                            专业目录，xlsx文件
+      -code CODE_MAP, --code_map CODE_MAP
+                            代码映射规则，csv
+      -field FIELD_MAP, --field_map FIELD_MAP  字段映射json
+      -filter MAJOR_FILTER, --major_filter MAJOR_FILTER  专业过滤器json
+      -sort SORTL_LIST, --sortL_list SORTL_LIST 排序列表
+```
+
+#### 五、数据存放
+
+原始数据存放在`root_path`下，每个省份下存放每个批次的DBF文件夹，注意不能文件夹嵌套。
+
+#### 六、配置文件
 
 1.  ResultFrame.xlsx
 
