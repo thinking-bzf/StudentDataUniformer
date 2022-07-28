@@ -5,6 +5,7 @@ from model.StudentData import StudentData
 from model.ProfessMap import ProfessMap
 
 import argparse
+from tqdm import tqdm
 
 
 # 数据结构
@@ -87,10 +88,10 @@ if __name__ == "__main__":
     sortList = ['SYD', 'PCMC', 'KLMC', 'XY', 'LQZY']
     
     # 处理每个省份
-    for province in provinceList:
+    for province in tqdm(provinceList):
         provinceDir = os.path.join(root, province)
         result = None
-        print(f"{province} 开始")
+        # print(f"{province} 开始")
         itemList = os.listdir(provinceDir)
         for item in itemList:
             # 判断是否为文件夹
@@ -111,7 +112,7 @@ if __name__ == "__main__":
                 result = studentData.dataSet
             else:
                 result = pd.concat([result, studentData.dataSet])
-            print(f"{item} 完成")
+            # print(f"{item} 完成")
         # 导出结果
         if not result is None:
             result.to_excel(os.path.join(savePath, f"{province}.xlsx"))
