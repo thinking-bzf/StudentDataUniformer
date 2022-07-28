@@ -1,0 +1,212 @@
+{
+    "CJXDIC": {
+        "GKCJX01": [
+            "语文",
+            "语文分",
+            "语文成绩",
+            "语文（含附加分）"
+        ],
+        "GKCJX02": [
+            "数学",
+            "数学分",
+            "理科数学",
+            "数学理",
+            "数学成绩",
+            "数学（含附加分）"
+        ],
+        "GKCJX02X": [
+            "文科数学",
+            "数学文"
+        ],
+        "GKCJX03": [
+            "外语",
+            "外语分",
+            "英语",
+            "英语成绩",
+            "外语成绩"
+        ],
+        "GKCJX04": [
+            "物理",
+            "物理分",
+            "物理选测"
+        ],
+        "GKCJX05": [
+            "化学",
+            "化学分",
+            "化学选测"
+        ],
+        "GKCJX06": [
+            "生物",
+            "生物分",
+            "生物选测",
+            "生命科学"
+        ],
+        "GKCJX07": [
+            "政治",
+            "政治分",
+            "政治必测",
+            "思想政治"
+        ],
+        "GKCJX08": [
+            "历史",
+            "历史分",
+            "历史必测"
+        ],
+        "GKCJX09": [
+            "地理",
+            "地理分",
+            "地理必测"
+        ],
+        "GKCJX10": [
+            "技术"
+        ],
+        "GKCJX11": [
+            "统考美术成绩",
+            "美术专业分",
+            "美术总分",
+            "艺体专业成绩",
+            "美术统考总分",
+            "美术与设计学类",
+            "美术本科统考成绩",
+            "美术"
+        ],
+        "GKCJX12": [
+            "综合",
+            "综合成绩",
+            "理科综合",
+            "综合/对口专业",
+            "文综/理综"
+        ],
+        "GKCJX12X": [
+            "文科综合"
+        ],
+        "GKCJX13": [
+            "外语听力"
+        ]
+    },
+    "CommonFiled": {
+        "KSH": [
+            "KSH"
+        ],
+        "ZKZH": [
+            "ZKZH"
+        ],
+        "XM": [
+            "XM"
+        ],
+        "XBDM": [
+            "XBDM"
+        ],
+        "CSNY": [
+            "CSNY",
+            "CSRQ"
+        ],
+        "ZZMMDM": [
+            "ZZMMDM"
+        ],
+        "MZDM": [
+            "MZDM"
+        ],
+        "KSLBDM": [
+            "KSLBDM"
+        ],
+        "ZXDM": [
+            "BYXXDM",
+            "ZXDM"
+        ],
+        "ZXMC": [
+            "BYXXMC",
+            "ZXMC"
+        ],
+        "WYYZDM": [
+            "WYYZDM"
+        ],
+        "HKDJ": [
+            "HKDJ"
+        ],
+        "BMDW": [
+            "BMDW"
+        ],
+        "KSTZ": [
+            "KSTZ"
+        ],
+        "XTDW": [
+            "考生系统单位"
+        ],
+        "DQDM": [
+            "DQDM"
+        ],
+        "SFZH": [
+            "ZJHM",
+            "SFZH"
+        ],
+        "JTDZ": [
+            "TXDZ",
+            "JTDZ"
+        ],
+        "YZBM": [
+            "YZBM"
+        ],
+        "LXDH": [
+            "LXSJ",
+            "LXDH"
+        ],
+        "HKKH": [
+            "HKKH"
+        ],
+        "KSTC": [
+            "KSTC"
+        ],
+        "KSJLHCF": [
+            "KSJLHCF"
+        ],
+        "WYKS": [
+            "WYKS"
+        ],
+        "ZSYJ": [
+            "ZSYJ"
+        ],
+        "KSLXDM": [
+            "KSLXDM"
+        ],
+        "SJR": [
+            "SJR"
+        ],
+        "YSJZDM": [
+            "YSJZDM"
+        ],
+        "WYTL": [
+            "WYTL"
+        ],
+        "PCDM": [
+            "PCDM"
+        ],
+        "KLDM": [
+            "KLDM"
+        ],
+        "TDDW": [
+            "TDDWDM"
+        ],
+        "JHXZ": [
+            "JHXZDM"
+        ],
+        "TDCJ": [
+            "TDCJ"
+        ],
+        "CJ": [
+            "CJ"
+        ],
+        "TDZY": [
+            "TDZY"
+        ],
+        "TZCJ":[
+            "TZCJ"
+        ],
+        "ZYCJTFPW":[
+            "ZYCJTFPW"
+        ],
+        "LQZY":[
+            "LQZY"
+        ]
+    }
+}
