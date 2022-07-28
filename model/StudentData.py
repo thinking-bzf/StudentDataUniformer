@@ -78,7 +78,10 @@ class StudentData(object):
         scoreMap = self.codeMap.curMaps['CJX']
         # 寻找匹配的成绩项名称
         for item in proList:
-            return [key for key, value in scoreMap.map.items() if item == value]
+            parseResult = [key for key, value in scoreMap.map.items() if item == value]
+            if len(parseResult) > 0:
+                return parseResult
+        return []
 
     # 代码名称映射
     def CodeMapping(self):
@@ -108,17 +111,21 @@ class StudentData(object):
     
     # 最终过滤器
     def FieldFilter(self):
-        if 'GKCJX02X' in self.dataSet.columns:
-            if 'GKCJX02' in self.dataSet.columns:
-                self.dataSet['GKCJX02'] = self.dataSet[['GKCJX02', 'GKCJX02X']].max(axis=1)
-            else:
-                self.dataSet['GKCJX02'] = self.dataSet['GKCJX02X']
-
-        if 'GKCJX12X' in self.dataSet.columns:
-            if 'GKCJX12' in self.dataSet.columns:
-                self.dataSet['GKCJX12'] = self.dataSet[['GKCJX12', 'GKCJX12X']].max(axis=1)
-            else:
-                self.dataSet['GKCJX12'] = self.dataSet['GKCJX12X']
+        joinFields = [('GKCJX02X','GKCJX02'), ('GKCJX12X','GKCJX12')]
+        deleteCol = []
+        for field in joinFields:
+            # 如果文科字段存在表内
+            if field[0] in self.dataSet.columns:
+                
+                deleteCol.append(field[0])
+                # 如果理科字段在表内则取最大值
+                if field[1] in self.dataSet.columns:
+                    self.dataSet[field[1]] = self.dataSet[[field[1],field[0]]].max(axis=1)
+                # 复制
+                else:
+                    self.dataSet[field[1]] = self.dataSet[field[0]]
+        
+        self.dataSet = self.dataSet.drop(deleteCol,axis=1)
     
     # 数据排序
     def Sort(self, sorList):
