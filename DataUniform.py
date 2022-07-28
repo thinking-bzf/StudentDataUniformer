@@ -89,18 +89,26 @@ if __name__ == "__main__":
     # 排序关键字列表
     sortList = ['SYD', 'PCMC', 'KLMC', 'XY', 'LQZY']
 
+    result = None
     # 处理每个省份
     for province in tqdm(provinceList):
         provinceDir = os.path.join(root, province)
-        result = None
-        # print(f"{province} 开始")
+
+        if not os.path.isdir(provinceDir):
+            continue
+
+        # 判断是否需要拼接
+        if not args.is_concat:
+            result = None
+
         itemList = os.listdir(provinceDir)
+        # 省份某批次开始
         for item in itemList:
-            # 判断是否为文件夹
+
+            # 判断是否为文件夹和文件夹中是否为空
             workDir = os.path.join(provinceDir, item)
             if not os.path.isdir(workDir):
                 continue
-
             if len(os.listdir(workDir)) == 0:
                 continue
 
@@ -122,6 +130,15 @@ if __name__ == "__main__":
             else:
                 result = pd.concat([result, studentData.dataSet])
             # print(f"{item} 完成")
-        # 导出结果
+
         if not result is None:
-            result.to_excel(os.path.join(savePath, f"{province}.xlsx"))
+            # 判断是否需要连接
+            if not args.is_concat:
+                result.to_excel(os.path.join(savePath, f"{province}.xlsx"))
+            elif args.is_concat:
+                result = pd.concat([result, studentData.dataSet])
+
+    # 将最后全部连接的结果导出
+    if args.is_concat and result is not None:
+        print("export entire data ...")
+        result.to_excel(os.path.join(savePath, f"result.xlsx"))
