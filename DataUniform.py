@@ -39,12 +39,14 @@ from tqdm import tqdm
 """
 
 # 解析参数
+
+
 def parameter_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-root", "--root_path", type=str, 
-                        default="./test")
+    parser.add_argument("-root", "--root_path", type=str,
+                        default="./data")
     parser.add_argument("-save", "--save_path", type=str,
-                        default="./test/result")
+                        default="./data/result")
     parser.add_argument("-concat", "--is_concat", type=int,
                         default=0, help='Whether to concat')
     parser.add_argument("-frame", "--result_frame", type=str,
@@ -83,10 +85,10 @@ if __name__ == "__main__":
 
     if not os.path.exists(savePath):
         os.makedirs(savePath)
-    
+
     # 排序关键字列表
     sortList = ['SYD', 'PCMC', 'KLMC', 'XY', 'LQZY']
-    
+
     # 处理每个省份
     for province in tqdm(provinceList):
         provinceDir = os.path.join(root, province)
@@ -99,8 +101,15 @@ if __name__ == "__main__":
             if not os.path.isdir(workDir):
                 continue
 
+            if len(os.listdir(workDir)) == 0:
+                continue
+
             # 加载学生数据
             studentData = StudentData(workDir, codeMap, province)
+            # 判断是否有数据
+            if studentData.dataSet is None:
+                continue
+
             # 加载结果框架
             studentData.LoadResultFrame(resultFramePath)
             studentData.ConcatData()        # 数据连接到框架中

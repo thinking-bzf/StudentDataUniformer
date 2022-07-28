@@ -30,7 +30,8 @@ class StudentData(object):
         DataList = os.listdir(self.workDir)
 
         if 'T_TDD.dbf' not in DataList:
-            self.dataSet = pd.DataFrame()
+            self.dataSet = None
+            return
 
         sourceData = readDBF(os.path.join(self.workDir, 'T_TDD.dbf'))
 
@@ -108,9 +109,16 @@ class StudentData(object):
     # 最终过滤器
     def FieldFilter(self):
         if 'GKCJX02X' in self.dataSet.columns:
-            self.dataSet['GKCJX02'] = self.dataSet[['GKCJX02', 'GKCJX02X']].max(axis=1)
+            if 'GKCJX02' in self.dataSet.columns:
+                self.dataSet['GKCJX02'] = self.dataSet[['GKCJX02', 'GKCJX02X']].max(axis=1)
+            else:
+                self.dataSet['GKCJX02'] = self.dataSet['GKCJX02X']
+
         if 'GKCJX12X' in self.dataSet.columns:
-            self.dataSet['GKCJX12'] = self.dataSet[['GKCJX12', 'GKCJX12X']].max(axis=1)
+            if 'GKCJX12' in self.dataSet.columns:
+                self.dataSet['GKCJX12'] = self.dataSet[['GKCJX12', 'GKCJX12X']].max(axis=1)
+            else:
+                self.dataSet['GKCJX12'] = self.dataSet['GKCJX12X']
     
     # 数据排序
     def Sort(self, sorList):
