@@ -42,6 +42,8 @@ class CodeMap(object):
         def loadMap(self, workDir):
             sourcePath = os.path.join(workDir, self.source)
             data = readDBF(sourcePath)
+            if data.empty:
+                return
             # 去除空格等杂项字符
             data[self.key] = data[self.key].apply(lambda x: x.strip())
             data[self.value] = data[self.value].apply(lambda x: x.strip())
